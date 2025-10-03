@@ -1,0 +1,16 @@
+version: 2
+
+exposures:
+  - name: customer_revenue_dashboard
+    type: dashboard
+    description: "Dashboard showing customer revenue metrics"
+    url: "https://example.com/dashboard"  # placeholder
+    depends_on:
+      - ref('customer_revenue')
+
+  - name: nation_performance_report
+    type: report
+    description: "Report analyzing orders by nation"
+    url: "https://example.com/report"  # placeholder
+    depends_on:
+      - ref('nation_order_summary')

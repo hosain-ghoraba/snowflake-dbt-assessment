@@ -1,9 +1,42 @@
 sources:
   - name: tpch
+    description: "TPC-H benchmark dataset containing transactional data for orders, customers, and line items"
     database: SNOWFLAKE_SAMPLE_DATA
     schema: TPCH_SF1
     tables:
       - name: customer
+        description: "Customer master data containing customer information and demographics"
+        columns:
+          - name: c_custkey
+            description: "Unique identifier for each customer"
+          - name: c_name
+            description: "Customer name"
+          - name: c_nationkey
+            description: "Foreign key to nation table"
       - name: orders
+        description: "Order header information including order dates and total prices"
+        columns:
+          - name: o_orderkey
+            description: "Unique identifier for each order"
+          - name: o_custkey
+            description: "Foreign key to customer table"
+          - name: o_orderdate
+            description: "Date when the order was placed"
+          - name: o_totalprice
+            description: "Total price of the order"
       - name: lineitem
+        description: "Order line items containing detailed product information and pricing"
+        columns:
+          - name: l_orderkey
+            description: "Foreign key to orders table"
+          - name: l_extendedprice
+            description: "Extended price (unit price * quantity)"
+          - name: l_discount
+            description: "Discount percentage applied to the line item"
       - name: nation
+        description: "Nation reference data"
+        columns:
+          - name: n_nationkey
+            description: "Unique identifier for each nation"
+          - name: n_name
+            description: "Nation name"
