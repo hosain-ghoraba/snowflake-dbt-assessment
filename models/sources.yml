@@ -13,6 +13,7 @@ sources:
             description: "Customer name"
           - name: c_nationkey
             description: "Foreign key to nation table"
+
       - name: orders
         description: "Order header information including order dates and total prices"
         columns:
@@ -24,6 +25,7 @@ sources:
             description: "Date when the order was placed"
           - name: o_totalprice
             description: "Total price of the order"
+
       - name: lineitem
         description: "Order line items containing detailed product information and pricing"
         columns:
@@ -33,6 +35,7 @@ sources:
             description: "Extended price (unit price * quantity)"
           - name: l_discount
             description: "Discount percentage applied to the line item"
+            
       - name: nation
         description: "Nation reference data"
         columns:

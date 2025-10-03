@@ -5,12 +5,18 @@ exposures:
     type: dashboard
     description: "Dashboard showing customer revenue metrics"
     url: "https://example.com/dashboard"  # placeholder
+    owner:
+      name: "Analytics Team"
+      email: "analytics@company.com"
     depends_on:
       - ref('customer_revenue')
 
   - name: nation_performance_report
-    type: report
+    type: analysis
     description: "Report analyzing orders by nation"
     url: "https://example.com/report"  # placeholder
+    owner:
+      name: "Business Intelligence Team"
+      email: "bi@company.com"
     depends_on:
       - ref('nation_order_summary')
