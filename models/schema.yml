@@ -7,10 +7,16 @@ models:
         tests:
           - not_null
           - unique
+          - relationships:
+              to: source('tpch', 'orders')
+              field: o_orderkey
       - name: o_custkey
         description: "Foreign key linking to customer table"
         tests:
           - not_null
+          - relationships:
+              to: source('tpch', 'customer')
+              field: c_custkey
       - name: customer_name
         description: "Customer name from customer master data"
         tests:
@@ -34,6 +40,9 @@ models:
         tests:
           - not_null
           - unique
+          - relationships:
+              to: ref('stg_orders')
+              field: o_custkey
       - name: customer_name
         description: "Customer name"
         tests:
