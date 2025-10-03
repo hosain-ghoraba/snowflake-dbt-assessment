@@ -1,0 +1,23 @@
+models:
+  - name: stg_orders
+    description: "Staging orders with customer names and derived columns"
+    columns:
+      - name: o_orderkey
+        tests:
+          - not_null
+          - unique
+
+  - name: customer_revenue
+    description: "Aggregated customer revenue"
+    columns:
+      - name: o_custkey
+        tests:
+          - not_null
+          - unique
+  
+  - name: nation_order_summary
+    description: "For each nation, display total number of orders done, and total number of customers from that nation that did do an order"
+    columns:
+      - name: nation_name
+        tests:
+          - not_null
