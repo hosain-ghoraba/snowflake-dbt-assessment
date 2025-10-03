@@ -113,3 +113,32 @@ The project defines downstream consumption:
 
 - **Customer Revenue Dashboard**: Revenue metrics visualization
 - **Nation Performance Report**: Geographic analysis reports
+
+## 🚀 GitHub Actions CI/CD (Optional)
+
+This project includes automated CI/CD using GitHub Actions for scheduled dbt runs.
+
+### Workflow Features
+
+- **Scheduled Runs**: Automatically runs every day at 6:00 AM UTC
+- **Manual Triggers**: Can be triggered manually via GitHub Actions UI
+- **Environment Variables**: Uses GitHub Secrets for secure credential management
+- **Automated Testing**: Runs `dbt build` to execute models and tests
+
+### Setup GitHub Actions
+
+1. **Add GitHub Secrets** to your repository:
+
+   - Go to Settings → Secrets and variables → Actions
+   - Add the following secrets:
+     - `SNOWFLAKE_ACCOUNT`
+     - `SNOWFLAKE_USER`
+     - `SNOWFLAKE_PASSWORD`
+     - `SNOWFLAKE_WAREHOUSE`
+     - `SNOWFLAKE_DATABASE`
+     - `SNOWFLAKE_ROLE`
+     - `SNOWFLAKE_SCHEMA`
+
+2. **Workflow File**: The workflow is already configured in `.github/workflows/dbt.yml`
+
+3. **Manual Trigger**: Go to Actions tab → "dbt Scheduled Run" → "Run workflow"
