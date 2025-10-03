@@ -2,8 +2,8 @@ name: dbt Scheduled Run
 
 on:
   schedule:
-    - cron: "* * * * *"  # every minute (for testing)
-  workflow_dispatch:       
+    - cron: "0 6 * * *" # runs every day at 6:00 am UTC
+  workflow_dispatch:
 
 jobs:
   dbt-run:
@@ -16,14 +16,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: Install dbt for Snowflake
         run: pip install dbt-snowflake
 
       - name: Run dbt
         env:
-          DBT_PROFILES_DIR: . 
+          DBT_PROFILES_DIR: .
           SNOWFLAKE_ACCOUNT: ${{ secrets.SNOWFLAKE_ACCOUNT }}
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
